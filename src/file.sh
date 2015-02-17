@@ -33,19 +33,19 @@ get_tmp_dir () {
 	local tmp_dir
 	if ! tmp_dir=$( mktemp -du "${template}" ); then
 		log_error 'Failed to create temporary directory'
-		log_error "  args: $@"
-		log_error "  BASHMENOT_INTERNAL_TMP=${BASHMENOT_INTERNAL_TMP:-}"
-		log_error "  base=${base}"
-		log_error "  template=${template}"
-		log_error "  tmp_dir=${tmp_dir}"
+		log_debug "  args: $@"
+		log_debug "  BASHMENOT_INTERNAL_TMP=${BASHMENOT_INTERNAL_TMP-(unset)}"
+		log_debug "  base=${base-(unset)}"
+		log_debug "  template=${template-(unset)}"
+		log_debug "  tmp_dir=${tmp_dir-(unset)}"
 		return 1
 	fi
-	log_error 'Succeeded to create temporary directory'
-	log_error "  args: $@"
-	log_error "  BASHMENOT_INTERNAL_TMP=${BASHMENOT_INTERNAL_TMP:-}"
-	log_error "  base=${base}"
-	log_error "  template=${template}"
-	log_error "  tmp_dir=${tmp_dir}"
+	log_debug 'Succeeded to create temporary directory'
+	log_debug "  args: $@"
+	log_debug "  BASHMENOT_INTERNAL_TMP=${BASHMENOT_INTERNAL_TMP-(unset)}"
+	log_debug "  base=${base-(unset)}"
+	log_debug "  template=${template-(unset)}"
+	log_debug "  tmp_dir=${tmp_dir-(unset)}"
 
 	echo "${tmp_dir}"
 }
